@@ -9,16 +9,20 @@ const BmiCalculator = () => {
             <span className='label-unit'>Unit</span>
             <div className='unit'>
               <select
-              name='unit'
-              value=''
-              className='form-control form-control-sm'
+                name='unit'
+                value=''
+                className='form-control form-control-sm'
               >
                 <option value='Imperial'>Imperial</option>
                 <option value='Metric'>Metric</option>
               </select>
             </div>
           </div>
+          <input type='text' placeholder='input' />
         </div>
+        <button className='button' type='submit'>
+          Reset
+        </button>
       </div>
     </>
   );

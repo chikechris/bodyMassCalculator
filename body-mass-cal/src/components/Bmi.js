@@ -1,4 +1,5 @@
 import React from 'react';
+import BmiCalculator from './BmiCalculator'
 
 const Bmi = () => {
   return (
@@ -10,6 +11,7 @@ const Bmi = () => {
             <div className='bmi-result-number'>Body Mass Index (Bmi) = 34</div>
             <div className={`bmi-category`}>Underweight</div>
           </div>
+          <BmiCalculator />
         </div>
       </div>
     </>
