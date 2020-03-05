@@ -20,6 +20,7 @@ const FormInput = props => {
         className='range-input'
         value={value}
         onChange={onChange}
+        autoComplete='false'
         />
       </div>
     </div>
@@ -27,6 +28,10 @@ const FormInput = props => {
 }
 
 FormInput.propTypes = {
+  title: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.oneOf(['text'])
 
 }
 
