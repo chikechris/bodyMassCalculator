@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import FormInput from './FormInput';
+import PropTypes from 'prop-types'
 
-const BmiCalculator = () => {
-  const [heightUnit, setHeightUnit] = useState('m');
+const BmiCalculator = props => {
+  const { setBmiValueProp } = props;
+  const [heightUnit, setHeightUnit] = useState('cm');
   const [weightUnit, setWeightUnit] = useState('kg');
   const [unit, setUnit] = useState('Metric');
   // const [count, setCount] = useState({
@@ -21,7 +23,10 @@ const BmiCalculator = () => {
   // const { heightCount, inchesCount, weightCount   }= count.data
   const { heightCount, inchesCount, weightCount } = count;
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    metricBMI(heightCount, weightCount);
+    // eslint-disable-next-line
+  }, [heightCount, weightCount]);
 
   const onChangeInput = e => {
     const { name, value } = e.target;
@@ -41,7 +46,7 @@ const BmiCalculator = () => {
   const onSelectTag = e => {
     setUnit(e.target.value);
     if (e.target.value === 'Metric') {
-      setHeightUnit('m');
+      setHeightUnit('cm');
       setWeightUnit('kg');
     } else {
       setHeightUnit('ft');
@@ -49,15 +54,24 @@ const BmiCalculator = () => {
     }
   };
 
+  const metricBMI = (height, weight) => {
+    if (height > 0 && weight > 0) {
+      const heightToMeter = height / 100;
+      const bmi = weight / Math.pow(heightToMeter, 2);
+      setBmiValueProp(Math.round(bmi))
+    }
+  };
+
   const resetData = e => {
     e.preventDefault();
+    setBmiValueProp(0)
     setUnit('Metric');
     setCount({
       heightCount: '0',
       inchesCount: '0',
       weightCount: '0'
     });
-    setHeightUnit('m');
+    setHeightUnit('cm');
     setWeightUnit('kg');
   };
   return (
@@ -112,5 +126,9 @@ const BmiCalculator = () => {
     </>
   );
 };
+
+BmiCalculator.propTypes = {
+  setBmiValueProp: PropTypes.func.isRequired
+}
 
 export default BmiCalculator;
