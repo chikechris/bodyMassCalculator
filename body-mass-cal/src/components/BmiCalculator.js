@@ -5,12 +5,42 @@ const BmiCalculator = () => {
   const [heightUnit, setHeightUnit] = useState('cm');
   const [weightUnit, setWeightUnit] = useState('kg');
   const [unit, setUnit] = useState('Metric');
+  // const [count, setCount] = useState({
+  //  data:{     
+  //       heightCount: '0', 
+  //       inchesCount: '0', 
+  //       weightCount: '0'
+  //     }
+  // }) 
+  const [count, setCount] = useState({
+
+      heightCount: '0',
+      inchesCount: '0',
+      weightCount: '0'
+   
+  }) 
+
+  // const { heightCount, inchesCount, weightCount   }= count.data 
+  const { heightCount, inchesCount, weightCount } = count
+
 
   useEffect(() => {
   
   }, [])
 
-  const onChangeInput = e => {};
+  const onChangeInput = e => {
+    const {name, value} = e.target 
+    // const {data} = count
+    // setCount({
+    //  data:{
+    //    ...data,
+    //     [name]: value
+    // }
+    // })
+    setCount(prevState =>({
+      ...prevState, [name]: value
+    }))
+  };
 
   const onSelectTag = e => {
     setUnit(e.target.value);
@@ -22,6 +52,19 @@ const BmiCalculator = () => {
       setWeightUnit('lbs');
     }
   };
+
+  const resetData = e => {
+    e.preventDefault()
+    setUnit('Metric') 
+    setCount({
+      heightCount: '0',
+      inchesCount: '0',
+      weightCount: '0'
+    }) 
+    setHeightUnit('cm');
+    setWeightUnit('kg');
+
+  }
   return (
     <>
       <div className='bmi-inpute'>
@@ -44,7 +87,7 @@ const BmiCalculator = () => {
             type='text'
             name='heightCount'
             title={`Height (${heightUnit})`}
-            value=''
+            value={heightCount}
             onChange={onChangeInput}
           />
           {unit === 'Imperial' ? (
@@ -52,7 +95,7 @@ const BmiCalculator = () => {
               type='text'
               name='inchesCount'
               title={`(inches)`}
-              value=''
+              value={inchesCount}
               onChange={onChangeInput}
             />
           ) : (
@@ -63,11 +106,11 @@ const BmiCalculator = () => {
             type='text'
             name='weightCount'
             title={`Weight (${weightUnit})`}
-            value=''
+            value={weightCount }
             onChange={onChangeInput}
           />
         </div>
-        <button className='button' type='submit'>
+        <button className='button' type='submit' onClick={resetData}>
           Reset
         </button>
       </div>
