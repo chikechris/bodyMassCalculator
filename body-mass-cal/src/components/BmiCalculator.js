@@ -25,8 +25,9 @@ const BmiCalculator = props => {
 
   useEffect(() => {
     metricBMI(heightCount, weightCount);
+    ImperialBMI(heightCount, weightCount, inchesCount )
     // eslint-disable-next-line
-  }, [heightCount, weightCount]);
+  }, [heightCount, weightCount, inchesCount ]);
 
   const onChangeInput = e => {
     const { name, value } = e.target;
@@ -61,6 +62,13 @@ const BmiCalculator = props => {
       setBmiValueProp(Math.round(bmi))
     }
   };
+  const ImperialBMI = (height, weight, inches) =>{
+        if (height > 0 && weight > 0 && inches > 0) {
+          const heightToInches = (height * 12)  + parseInt(inches)
+          const bmi = 703 * (weight / (heightToInches * heightToInches))
+          setBmiValueProp(Math.round(bmi))
+        }
+  }
 
   const resetData = e => {
     e.preventDefault();
