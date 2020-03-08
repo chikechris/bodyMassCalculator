@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bodyMassCalculator/static/css/main.88837caa.chunk.css",
+    "main.js": "/bodyMassCalculator/static/js/main.6d9aa795.chunk.js",
+    "main.js.map": "/bodyMassCalculator/static/js/main.6d9aa795.chunk.js.map",
+    "runtime-main.js": "/bodyMassCalculator/static/js/runtime-main.22218859.js",
+    "runtime-main.js.map": "/bodyMassCalculator/static/js/runtime-main.22218859.js.map",
+    "static/css/2.de424728.chunk.css": "/bodyMassCalculator/static/css/2.de424728.chunk.css",
+    "static/js/2.3dfe6f63.chunk.js": "/bodyMassCalculator/static/js/2.3dfe6f63.chunk.js",
+    "static/js/2.3dfe6f63.chunk.js.map": "/bodyMassCalculator/static/js/2.3dfe6f63.chunk.js.map",
+    "index.html": "/bodyMassCalculator/index.html",
+    "precache-manifest.8cae649066ed78fc23621781e2b5a2fd.js": "/bodyMassCalculator/precache-manifest.8cae649066ed78fc23621781e2b5a2fd.js",
+    "service-worker.js": "/bodyMassCalculator/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/bodyMassCalculator/static/css/2.de424728.chunk.css.map",
+    "static/css/main.88837caa.chunk.css.map": "/bodyMassCalculator/static/css/main.88837caa.chunk.css.map",
+    "static/js/2.3dfe6f63.chunk.js.LICENSE.txt": "/bodyMassCalculator/static/js/2.3dfe6f63.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.22218859.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.3dfe6f63.chunk.js",
+    "static/css/main.88837caa.chunk.css",
+    "static/js/main.6d9aa795.chunk.js"
+  ]
+}
